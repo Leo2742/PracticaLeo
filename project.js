@@ -1,29 +1,48 @@
-let seconds = 0;
-let clicks = 0;
-let moves = 0;
-let keys = 0;
+function navigateTo(page) {
+  const main = document.getElementById('main-content');
+  main.innerHTML = `<h3>${page.charAt(0).toUpperCase() + page.slice(1)} Page</h3><p>Content for the ${page} page will appear here.</p>`;
+}
 
-const timeSpan = document.getElementById('time');
-const clickSpan = document.getElementById('clicks');
-const moveSpan = document.getElementById('moves');
-const keySpan = document.getElementById('keys');
+function searchHandler(event) {
+  event.preventDefault();
+  const query = document.getElementById('searchInput').value;
+  const main = document.getElementById('main-content');
+  main.innerHTML = `<h3>Search Results</h3><p>You searched for: <strong>${query}</strong></p>`;
+}
 
-setInterval(() => {
-  seconds++;
-  timeSpan.textContent = seconds;
-}, 1000);
+function initializeApp() {
+  const savedUsername = localStorage.getItem('username');
+  const savedEmail = localStorage.getItem('email');
 
-document.addEventListener('click', () => {
-  clicks++;
-  clickSpan.textContent = clicks;
-});
+  if (savedUsername && savedEmail) {
+    document.getElementById('displayUsername').textContent = savedUsername;
+    document.getElementById('displayEmail').textContent = savedEmail;
+    document.getElementById('navbarUsername').textContent = savedUsername;
+  } else {
+    const registrationModal = new bootstrap.Modal(document.getElementById('registrationModal'));
+    registrationModal.show();
+  }
+}
 
-document.addEventListener('mousemove', () => {
-  moves++;
-  moveSpan.textContent = moves;
-});
+function registerUser(event) {
+  event.preventDefault();
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
 
-document.addEventListener('keydown', () => {
-  keys++;
-  keySpan.textContent = keys;
-});
+  localStorage.setItem('username', username);
+  localStorage.setItem('email', email);
+
+  document.getElementById('displayUsername').textContent = username;
+  document.getElementById('displayEmail').textContent = email;
+  document.getElementById('navbarUsername').textContent = username;
+
+  const registrationModalEl = document.getElementById('registrationModal');
+  const modal = bootstrap.Modal.getInstance(registrationModalEl);
+  modal.hide();
+}
+
+function logout() {
+  localStorage.removeItem('username');
+  localStorage.removeItem('email');
+  location.reload();
+}

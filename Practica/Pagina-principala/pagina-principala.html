@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pagina Principală</title>
+
+  <!-- CSS-uri globale -->
+  <link rel="stylesheet" href="Navbar/navbar.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Referințe către componente -->
+  <div id="navbar"></div>
+  <div id="meniu"></div>
+  <div id="continut"></div>
+  <div id="footer"></div>
+
+  <script>
+    function includeHTML(id, file, callback) {
+      fetch(file)
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if (callback) callback();
+        });
+    }
+
+    includeHTML("navbar", "Navbar/navbar.html", () => {
+      const script = document.createElement("script");
+      script.src = "Navbar/navbar.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    });
+
+    includeHTML("meniu", "Meniu/meniu.html");
+    includeHTML("continut", "Continut/continut.html");
+    includeHTML("footer", "Footer/footer.html");
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
