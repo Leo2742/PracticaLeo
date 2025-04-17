@@ -22,4 +22,7 @@
     border-radius: 8px;
     margin-top: 20px;
   }
-  
+  .continut-principal {
+    flex: 1;
+    padding: 2rem;
+  }

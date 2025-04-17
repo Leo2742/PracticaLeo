@@ -1,34 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meniu</title>
-  <script src="../Meniu/meniu.js" defer></script>
-<link rel="stylesheet" href="../Meniu/meniu.css">
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 sidebar">
-        <h4>NetTime</h4>
-        <div class="profile">
-          <i class="fas fa-user-circle fa-2x"></i>
-          <span class="ms-2" id="displayUsername">Hizrian</span><br />
-          <small class="text-muted ms-4" id="displayEmail">Administrator</small>
-          <button class="btn btn-sm btn-danger logout-btn" onclick="logout()">Logout</button>
-        </div>
-        <div class="sidebar">
-          <h4>NetTime</h4>
-          <a href="#" onclick="navigateTo('components')">Components</a>
-          <a href="#" onclick="navigateTo('forms')">Forms</a>
-          <a href="#" onclick="navigateTo('tables')">Tables</a>
-          <a href="#" onclick="navigateTo('notifications')">Notifications</a>
-          <a href="#" onclick="navigateTo('typography')">Typography</a>
-          <a href="#" onclick="navigateTo('icons')">Icons</a>
-          <button class="btn btn-primary mt-4 w-100" onclick="navigateTo('pro')">Upgrade to Pro</button>
-        </div>
-    </div>
+<div class="col-md-12 sidebar">
+  <h4>NetTime</h4>
+  <div class="profile">
+    <i class="fas fa-user-circle fa-2x"></i>
+    <span class="ms-2" id="displayUsername">Hizrian</span><br />
+    <small class="text-muted ms-4" id="displayEmail">Administrator</small>
+    <button class="btn btn-sm btn-danger logout-btn" onclick="logout()">Logout</button>
   </div>
-</body>
-</html>
+  <a onclick="navigateTo('components')">Components</a>
+  <a onclick="navigateTo('forms')">Forms</a>
+  <a onclick="navigateTo('tables')">Tables</a>
+  <a onclick="navigateTo('notifications')">Notifications</a>
+  <a onclick="navigateTo('typography')">Typography</a>
+  <a onclick="navigateTo('icons')">Icons</a>
+  <button class="btn btn-primary mt-4 w-100" onclick="navigateTo('pro')">Upgrade to Pro</button>
+</div>

@@ -4,10 +4,6 @@ body {
     background-color: #f4f6f9;
   }
   
-  .container-fluid {
-    display: flex;
-    height: 100vh;
-  }
   
   .sidebar {
     background-color: #343a40;
@@ -128,4 +124,9 @@ body {
     .sidebar {
       display: none;
     }
+  }
+  .sidebar {
+    width: 250px; /* sau cât ai tu meniul */
+    background-color: #1e293b; /* sau ce culoare ai */
+    color: white;
   }

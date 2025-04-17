@@ -11,35 +11,46 @@
 </head>
 <body>
 
-  <!-- Referințe către componente -->
   <div id="navbar"></div>
-  <div id="meniu"></div>
-  <div id="continut"></div>
-  <div id="footer"></div>
+  <div class="container-fluid">
+    <div class="row w-100">
+      <div id="meniu" class="col-md-2 p-0"></div>
+      <div id="continut" class="col-md-10 p-0"></div>
+    </div>
+  </div>  
+<div id="footer"></div>
 
-  <script>
-    function includeHTML(id, file, callback) {
-      fetch(file)
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-          if (callback) callback();
-        });
+<script>
+  function includeHTML(id, file, callback) {
+    fetch(file)
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if (callback) callback();
+      });
+  }
+
+  const componente = [
+    { id: "navbar", file: "Navbar/navbar.html", script: "Navbar/navbar.js" },
+    { id: "meniu", file: "Meniu/meniu.html" },
+    { id: "continut", file: "Continut/continut.html" },
+    { id: "footer", file: "Footer/footer.html" }
+  ];
+
+  componente.forEach(comp => {
+    if (comp.script) {
+      includeHTML(comp.id, comp.file, () => {
+        const script = document.createElement("script");
+        script.src = comp.script;
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    } else {
+      includeHTML(comp.id, comp.file);
     }
+  });
+</script>
 
-    includeHTML("navbar", "Navbar/navbar.html", () => {
-      const script = document.createElement("script");
-      script.src = "Navbar/navbar.js";
-      script.defer = true;
-      document.body.appendChild(script);
-    });
-
-    includeHTML("meniu", "Meniu/meniu.html");
-    includeHTML("continut", "Continut/continut.html");
-    includeHTML("footer", "Footer/footer.html");
-  </script>
-
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
