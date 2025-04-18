@@ -16,5 +16,5 @@ function registerUser(event) {
 
   alert("Înregistrare reușită!");
 
-  window.location.href = "../Pagina-principala/pagina-principala.html";
+  window.location.href = "Pagina-principala/pagina-principala.html";
 }
