@@ -31,11 +31,11 @@
   }
 
   const componente = [
-    { id: "navbar", file: "Navbar/navbar.html", script: "Navbar/navbar.js" },
-    { id: "meniu", file: "Meniu/meniu.html" },
-    { id: "continut", file: "Continut/continut.html" },
-    { id: "footer", file: "Footer/footer.html" }
-  ];
+  { id: "navbar", file: "Navbar/navbar.html", script: "Navbar/navbar.js" },
+  { id: "meniu", file: "Meniu/meniu.html" },
+  { id: "continut", file: "Continut/continut.html" },
+  { id: "footer", file: "Footer/footer.html" }
+];
 
   componente.forEach(comp => {
     if (comp.script) {
@@ -52,5 +52,15 @@
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <div id="monitorizare">
+    <h3>Monitorizare activitate</h3>
+    <p id="total-time">Timp total: 0 secunde</p>
+    <ul id="pages-list">
+      <li>Nicio pagină vizitată încă.</li>
+    </ul>
+  </div>
+  
+  <!-- Include scriptul de monitorizare -->
+  <script src="monitorizare.js" defer></script>
 </body>
 </html>
